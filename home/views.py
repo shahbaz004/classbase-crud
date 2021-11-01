@@ -4,11 +4,7 @@ from .models import Student
 from django.views.generic.base import TemplateView, RedirectView, View
 
 
-# Create your views here.
-# def home(request):
-#     return render(request, 'index.html')
-
-
+# Updated
 class StudentView(TemplateView):
 
     def get_context_data(self, **kwargs):
@@ -21,11 +17,6 @@ class StudentView(TemplateView):
     def post(self, request):
         form = StudentForm(request.POST)
         if form.is_valid():
-            # name = form.cleaned_data['name']
-            # roll = form.cleaned_data['roll']
-            # mobile = form.cleaned_data['mobile']
-            # program = form.cleaned_data['program']
-            # reg = Student(name=name, roll=roll, mobile=mobile, program=program)
             form.save()
             return HttpResponseRedirect("/")
 
